@@ -4,410 +4,152 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Instituto Carioca de Saúde — Saúde, Ciência e Qualidade de Vida no Rio</title>
-<meta name="description" content="Instituto dedicado à saúde e bem-estar dos cariocas. Conteúdo especializado para profissionais e pacientes do Rio de Janeiro.">
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta name="description" content="Informações sobre saúde, ciência e bem-estar para profissionais e pacientes do Rio de Janeiro. Artigos sobre uniformes, normas e rotina clínica.">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --navy: #0d2b5e;
-    --blue: #1a4fa0;
-    --blue-light: #e8effc;
-    --gold: #c9a227;
-    --gold-light: #fdf6e3;
-    --green: #2e8b57;
-    --white: #ffffff;
-    --light: #f7f8fc;
-    --text: #1a1a2e;
-    --gray: #5a6680;
-    --border: #dce4f5;
-  }
-  body { font-family: 'Source Sans 3', sans-serif; background: var(--light); color: var(--text); line-height: 1.7; }
-
-  /* TOPBAR */
-  .topbar {
-    background: var(--navy);
-    color: rgba(255,255,255,0.75);
-    font-size: 0.78rem;
-    padding: 8px 24px;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-  .topbar span { display: flex; align-items: center; gap: 5px; }
-
-  /* HEADER */
-  header { background: var(--white); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(13,43,94,0.08); }
-  .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo { text-decoration: none; display: flex; align-items: center; gap: 14px; }
-  .logo-crest {
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    border: 2px solid var(--gold);
-  }
-  .logo-text { line-height: 1.15; }
-  .logo-name { font-family: 'Merriweather', serif; font-size: 0.9rem; font-weight: 700; color: var(--navy); }
-  .logo-sub { font-size: 0.72rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-  nav a { color: var(--gray); text-decoration: none; margin-left: 24px; font-size: 0.87rem; font-weight: 600; transition: color 0.2s; }
-  nav a:hover { color: var(--blue); }
-
-  /* HERO */
-  .hero {
-    background: var(--navy);
-    padding: 80px 24px;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(135deg, rgba(13,43,94,0.95) 0%, rgba(26,79,160,0.85) 50%, rgba(13,43,94,0.9) 100%);
-  }
-  /* Rio de Janeiro silhouette pattern */
-  .hero-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.04;
-    background-image: linear-gradient(45deg, #fff 25%, transparent 25%),
-      linear-gradient(-45deg, #fff 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #fff 75%),
-      linear-gradient(-45deg, transparent 75%, #fff 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  }
-  .hero-gold-line {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
-  @media (max-width: 700px) { .hero-inner { grid-template-columns: 1fr; } .hero-seal { display: none; } }
-  .hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 22px;
-  }
-  .eyebrow-line { width: 30px; height: 2px; background: var(--gold); }
-  .eyebrow-text { color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
-  .hero h1 {
-    font-family: 'Merriweather', serif;
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
-    color: #fff;
-    line-height: 1.3;
-    margin-bottom: 18px;
-  }
-  .hero h1 em { color: var(--gold); font-style: italic; }
-  .hero p { color: rgba(255,255,255,0.75); font-size: 1rem; margin-bottom: 36px; max-width: 460px; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-gold {
-    background: var(--gold);
-    color: var(--navy);
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    box-shadow: 0 4px 16px rgba(201,162,39,0.3);
-    transition: opacity 0.2s;
-  }
-  .btn-gold:hover { opacity: 0.9; }
-  .btn-outline {
-    border: 1px solid rgba(255,255,255,0.3);
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: background 0.2s;
-  }
-  .btn-outline:hover { background: rgba(255,255,255,0.1); }
-
-  /* SEAL */
-  .hero-seal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-  .seal-circle {
-    width: 220px;
-    height: 220px;
-    border: 3px solid rgba(201,162,39,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255,255,255,0.05);
-    flex-direction: column;
-    gap: 8px;
-  }
-  .seal-icon { font-size: 4rem; }
-  .seal-text { color: rgba(255,255,255,0.7); font-size: 0.8rem; text-align: center; font-family: 'Merriweather', serif; font-style: italic; }
-  .pillars { display: flex; gap: 10px; }
-  .pillar {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 8px;
-    padding: 12px 14px;
-    text-align: center;
-  }
-  .pillar-num { font-weight: 700; color: var(--gold); font-size: 1.1rem; }
-  .pillar-label { color: rgba(255,255,255,0.6); font-size: 0.72rem; }
-
-  /* CONTENT */
-  .section { max-width: 1100px; margin: 0 auto; padding: 64px 24px; }
-  .section-title {
-    font-family: 'Merriweather', serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-  .gold-bar { width: 40px; height: 3px; background: var(--gold); margin-bottom: 36px; }
-
-  .posts-featured {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
-  }
-  @media (max-width: 700px) { .posts-featured { grid-template-columns: 1fr; } }
-
-  .post-large {
-    background: var(--white);
-    border-radius: 14px;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 2px 16px rgba(13,43,94,0.08);
-    transition: box-shadow 0.2s, transform 0.2s;
-    display: block;
-  }
-  .post-large:hover { box-shadow: 0 8px 32px rgba(13,43,94,0.14); transform: translateY(-3px); }
-  .large-img {
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-  }
-  .img-navy { background: linear-gradient(135deg, var(--blue-light), #c8d8f5); }
-  .img-gold { background: linear-gradient(135deg, var(--gold-light), #f5e5b0); }
-  .large-body { padding: 22px 24px; }
-  .post-category {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    padding: 3px 10px;
-    border-radius: 4px;
-  }
-  .cat-blue { background: var(--blue-light); color: var(--blue); }
-  .cat-gold { background: var(--gold-light); color: #8a6200; }
-  .cat-green { background: #e8f5ee; color: var(--green); }
-  .large-title { font-family: 'Merriweather', serif; font-size: 1.1rem; line-height: 1.35; margin-bottom: 10px; }
-  .large-text { font-size: 0.87rem; color: var(--gray); line-height: 1.6; }
-
-  .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 18px;
-  }
-  .post-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 22px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 1px 6px rgba(13,43,94,0.05);
-    transition: box-shadow 0.2s, transform 0.2s;
-    display: block;
-  }
-  .post-card:hover { box-shadow: 0 6px 24px rgba(13,43,94,0.1); transform: translateY(-2px); }
-  .card-icon { font-size: 1.8rem; margin-bottom: 12px; }
-  .card-title { font-family: 'Merriweather', serif; font-size: 0.98rem; line-height: 1.4; margin-bottom: 8px; }
-  .card-text { font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
-
-  /* MISSION */
-  .mission {
-    background: linear-gradient(135deg, var(--navy), var(--blue));
-    padding: 64px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .mission::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-  .mission-inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
-  .mission h2 { font-family: 'Merriweather', serif; color: #fff; font-size: 1.7rem; margin-bottom: 16px; }
-  .mission h2 em { color: var(--gold); }
-  .mission p { color: rgba(255,255,255,0.7); margin-bottom: 28px; }
-  .mission a {
-    display: inline-block;
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    padding: 12px 30px;
-    border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.2s;
-  }
-  .mission a:hover { background: var(--gold); color: var(--navy); }
-
-  footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 28px; font-size: 0.82rem; border-top: 3px solid var(--gold); }
-  footer a { color: var(--gold); text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0d2b5e;--blue:#1a4fa0;--blue-light:#e8effc;--gold:#c9a227;--gold-light:#fdf6e3;--green:#2e8b57;--white:#fff;--light:#f7f8fc;--text:#1a1a2e;--gray:#5a6680;--border:#d0d9ee}
+body{font-family:'Source Sans 3',sans-serif;background:var(--light);color:var(--text);line-height:1.8}
+header{background:var(--navy);padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Merriweather',serif;color:var(--gold);font-size:1rem;text-decoration:none;line-height:1.3;max-width:320px}
+nav a{color:rgba(255,255,255,0.7);text-decoration:none;margin-left:20px;font-size:0.83rem}
+nav a:hover{color:var(--gold)}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);padding:80px 32px;position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:3fr 2fr;gap:48px;align-items:center}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr}.hero-badge-group{display:none}}
+.hero-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.7rem;font-weight:700;padding:4px 14px;border-radius:4px;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-family:'Merriweather',serif;font-size:clamp(1.8rem,3.5vw,2.7rem);color:#fff;line-height:1.25;margin-bottom:14px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:rgba(255,255,255,0.78);font-size:0.97rem;margin-bottom:12px}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;padding:14px 32px;border-radius:6px;font-weight:700;font-size:0.9rem;margin-top:18px}
+.hero-badge-group{display:flex;flex-direction:column;gap:14px}
+.badge{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:14px}
+.badge-icon{font-size:1.8rem}
+.badge-text strong{display:block;color:#fff;font-size:0.88rem;font-weight:700}
+.badge-text span{color:rgba(255,255,255,0.6);font-size:0.78rem}
+.section{max-width:1100px;margin:0 auto;padding:64px 32px}
+.section-header{margin-bottom:36px}
+.section-header h2{font-family:'Merriweather',serif;font-size:1.6rem;color:var(--navy);margin-bottom:8px}
+.section-line{width:50px;height:3px;background:var(--gold)}
+.featured{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:2fr 3fr;margin-bottom:32px}
+@media(max-width:700px){.featured{grid-template-columns:1fr}}
+.featured-img{background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;min-height:280px;flex-direction:column;gap:12px;padding:24px;text-align:center}
+.featured-img-icon{font-size:5rem}
+.featured-img p{color:rgba(255,255,255,0.7);font-size:0.82rem}
+.featured-body{padding:36px}
+.f-tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#fff;background:var(--navy);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:14px}
+.featured-body h3{font-family:'Merriweather',serif;font-size:1.4rem;color:var(--navy);margin-bottom:10px;line-height:1.3}
+.featured-body h4{font-size:1rem;color:var(--blue);margin-bottom:14px;font-weight:400;font-style:italic}
+.featured-body p{color:var(--gray);font-size:0.93rem;margin-bottom:12px}
+.featured-link{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;padding:12px 26px;border-radius:6px;font-weight:700;font-size:0.87rem;margin-top:8px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:600px){.grid-2{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.card-top{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.ct-navy{background:linear-gradient(135deg,var(--blue-light),#c8d8f5)}
+.ct-gold{background:linear-gradient(135deg,var(--gold-light),#f5e8b0)}
+.card-body{padding:20px 22px}
+.card-tag{font-size:0.67rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--navy);background:var(--blue-light);padding:3px 9px;border-radius:3px;display:inline-block;margin-bottom:9px}
+.card-title{font-family:'Merriweather',serif;font-size:1rem;color:var(--text);margin-bottom:8px;line-height:1.3}
+.card-text{font-size:0.86rem;color:var(--gray);line-height:1.65}
+.about{background:var(--navy);padding:64px 32px}
+.about-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:700px){.about-inner{grid-template-columns:1fr}}
+.about h2{font-family:'Merriweather',serif;color:var(--gold);font-size:1.6rem;margin-bottom:20px}
+.about p{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:14px}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.info-list li{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px 20px;color:rgba(255,255,255,0.8);font-size:0.9rem}
+.info-list li strong{color:var(--gold);display:block;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+footer{background:#071a3e;color:rgba(255,255,255,0.45);text-align:center;padding:28px;font-size:0.8rem}
+footer a{color:var(--gold);text-decoration:none}
 </style>
 </head>
 <body>
-
-<div class="topbar">
-  <span>🏛️ Rio de Janeiro, RJ</span>
-  <span>🔬 Saúde baseada em evidências</span>
-  <span>🥼 Formação de profissionais de saúde</span>
-</div>
-
 <header>
-  <div class="header-inner">
-    <a href="/" class="logo">
-      <div class="logo-crest">⚕️</div>
-      <div class="logo-text">
-        <div class="logo-name">Instituto Carioca de Saúde</div>
-        <div class="logo-sub">Rio de Janeiro • Fundado 2018</div>
-      </div>
-    </a>
-    <nav>
-      <a href="#">Sobre</a>
-      <a href="#posts">Publicações</a>
-      <a href="#">Profissionais</a>
-      <a href="#">Contato</a>
-    </nav>
-  </div>
+  <a href="/" class="logo">Instituto Carioca de Saúde</a>
+  <nav>
+    <a href="#">Artigos</a>
+    <a href="#">Normas</a>
+    <a href="/jaleco-feminino-normas-saude.html">Jaleco Feminino</a>
+    <a href="#">Sobre</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-pattern"></div>
-  <div class="hero-gold-line"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-text">Instituto Carioca de Saúde</span></div>
-      <h1>Saúde, ciência e <em>cuidado</em> para o carioca</h1>
-      <p>Conteúdo especializado em saúde preventiva, formação profissional e qualidade de vida para profissionais e pacientes do Rio de Janeiro.</p>
-      <div class="hero-btns">
-        <a href="#posts" class="btn-gold">Ver publicações</a>
-        <a href="#profissionais" class="btn-outline">Para profissionais</a>
-      </div>
+      <span class="hero-tag">Rio de Janeiro · Saúde &amp; Ciência</span>
+      <h1>Vestindo Saúde no <span>Ritmo Carioca</span></h1>
+      <p>A cidade maravilhosa se destaca não apenas por sua beleza natural, mas também pela excelência nos serviços de saúde. A vestimenta dos profissionais, como os jalecos femininos, desempenha um papel crucial neste cenário — garantindo que tradição e inovação caminhem lado a lado.</p>
+      <p>Os jalecos femininos são parte essencial do dia a dia das profissionais que atuam em hospitais e clínicas do Rio. Eles representam profissionalismo, higiene e a identidade única de cada profissional.</p>
+      <a href="/jaleco-feminino-normas-saude.html" class="hero-cta">Conheça os jalecos femininos ideais →</a>
     </div>
-    <div class="hero-seal">
-      <div class="seal-circle">
-        <div class="seal-icon">⚕️</div>
-        <div class="seal-text">Saúde com<br>responsabilidade</div>
-      </div>
-      <div class="pillars">
-        <div class="pillar"><div class="pillar-num">🔬</div><div class="pillar-label">Ciência</div></div>
-        <div class="pillar"><div class="pillar-num">💊</div><div class="pillar-label">Prevenção</div></div>
-        <div class="pillar"><div class="pillar-num">🤝</div><div class="pillar-label">Cuidado</div></div>
-      </div>
+    <div class="hero-badge-group">
+      <div class="badge"><span class="badge-icon">🏥</span><div class="badge-text"><strong>Saúde Pública &amp; Privada</strong><span>Cobertura completa do setor</span></div></div>
+      <div class="badge"><span class="badge-icon">📋</span><div class="badge-text"><strong>Normas &amp; Regulamentações</strong><span>CFM, CRO, COFEN, COFFITO</span></div></div>
+      <div class="badge"><span class="badge-icon">🎓</span><div class="badge-text"><strong>Formação Profissional</strong><span>Carreira e desenvolvimento</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="posts">
-  <h2 class="section-title">Publicações em Destaque</h2>
-  <div class="gold-bar"></div>
-  <div class="posts-featured">
-    <a class="post-large" href="/jaleco-para-profissionais-de-saude.html">
-      <div class="large-img img-navy">🥼</div>
-      <div class="large-body">
-        <span class="post-category cat-blue">Formação Profissional</span>
-        <div class="large-title">Jaleco para profissionais de saúde: identidade e responsabilidade</div>
-        <div class="large-text">O significado do <a href="https://jaleca.com.br/jalecos-femininos" style="color:var(--blue)">jaleco feminino</a> na construção da identidade profissional em saúde.</div>
-      </div>
-    </a>
-    <a class="post-large" href="/gestao-clinica-saude.html">
-      <div class="large-img img-gold">📊</div>
-      <div class="large-body">
-        <span class="post-category cat-gold">Gestão em Saúde</span>
-        <div class="large-title">Gestão de clínicas de saúde no Rio de Janeiro: desafios e oportunidades</div>
-        <div class="large-text">Como estruturar uma clínica eficiente com foco na qualidade do atendimento carioca.</div>
-      </div>
-    </a>
+<div class="section">
+  <div class="section-header">
+    <h2>Publicações em Destaque</h2>
+    <div class="section-line"></div>
   </div>
-  <div class="posts-grid" id="profissionais">
-    <a class="post-card" href="/saude-ocupacional-profissionais.html">
-      <div class="card-icon">🩺</div>
-      <span class="post-category cat-blue" style="display:inline-flex;margin-bottom:10px">Saúde Ocupacional</span>
-      <div class="card-title">Saúde ocupacional para profissionais de saúde no RJ</div>
-      <div class="card-text">Riscos, direitos e proteção para quem trabalha na linha de frente da saúde carioca.</div>
-    </a>
-    <a class="post-card" href="/prevencao-doencas-cronicas.html">
-      <div class="card-icon">🫀</div>
-      <span class="post-category cat-green" style="display:inline-flex;margin-bottom:10px">Prevenção</span>
-      <div class="card-title">Prevenção de doenças crônicas no Rio de Janeiro</div>
-      <div class="card-text">Dados locais e estratégias práticas para reduzir hipertensão, diabetes e obesidade.</div>
-    </a>
-    <a class="post-card" href="/uniforme-equipe-saude.html">
-      <div class="card-icon">🥼</div>
-      <span class="post-category cat-gold" style="display:inline-flex;margin-bottom:10px">Uniforme</span>
-      <div class="card-title">Padronização de uniformes em instituições de saúde</div>
-      <div class="card-text">Por que o uniforme importa na percepção de qualidade e segurança do paciente.</div>
-    </a>
+  <div class="featured">
+    <div class="featured-img">
+      <span class="featured-img-icon">🥼</span>
+      <p>Formação Profissional</p>
+    </div>
+    <div class="featured-body">
+      <span class="f-tag">Formação Profissional</span>
+      <h3>Jaleco Feminino na Saúde Pública e Privada do Rio</h3>
+      <h4>A Importância dos Jalecos Femininos na Identidade das Profissionais Cariocas</h4>
+      <p>A vestimenta profissional no setor de saúde vai muito além da estética — é parte da identidade, da higiene e do protocolo clínico. No Rio de Janeiro, onde coexistem redes públicas e privadas de altíssimo nível, o jaleco feminino ganhou novos significados.</p>
+      <p>Nenhum conselho federal proíbe o jaleco colorido ou o modelo slim feminino. CFM, CRO, COFEN e COFFITO estabelecem que o profissional deve usar vestimenta adequada — mas não definem cor, corte ou tecido. A escolha fica a cargo da instituição ou do profissional autônomo.</p>
+      <a href="/jaleco-feminino-normas-saude.html" class="featured-link">Ver jalecos femininos para profissionais de saúde →</a>
+    </div>
   </div>
-</section>
 
-<div class="mission">
-  <div class="mission-inner">
-    <h2>Formação profissional começa <em>pelo uniforme</em></h2>
-    <p>Do primeiro jaleco ao consultório próprio — a apresentação profissional é parte do cuidado com o paciente.</p>
-    <a href="https://jaleca.com.br/jalecos-femininos" target="_blank" rel="noopener">Ver jalecos profissionais →</a>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-top ct-navy">🤝</div>
+      <div class="card-body">
+        <span class="card-tag">Saúde &amp; Moda</span>
+        <h3 class="card-title">Saúde e Moda: Uma Parceria de Sucesso no Rio</h3>
+        <p class="card-text">Veja como os profissionais de saúde do Rio de Janeiro estão adotando novos estilos de jaleco sem abrir mão da eficiência clínica. Do modelo clássico ao slim colorido — uma revolução silenciosa nas clínicas cariocas.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-top ct-gold">⚕️</div>
+      <div class="card-body">
+        <span class="card-tag" style="background:var(--gold-light);color:#7a5e00">Rotina Clínica</span>
+        <h3 class="card-title">Cuidando com Estilo: O Novo Padrão nas Clínicas Cariocas</h3>
+        <p class="card-text">Como o vestuário adequado pode influenciar positivamente na rotina dos profissionais de saúde do Rio. A combinação de conforto, funcionalidade e apresentação impecável que os pacientes percebem antes mesmo da consulta começar.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about">
+  <div class="about-inner">
+    <div>
+      <h2>Sobre o Instituto</h2>
+      <p>O Instituto Carioca de Saúde é uma plataforma dedicada a promover o bem-estar e a excelência nos cuidados de saúde no Rio de Janeiro. Nosso compromisso é compartilhar conhecimentos e inovações que aprimoram a rotina dos profissionais de saúde.</p>
+      <p>Com um olhar atento para as necessidades locais, buscamos destacar o impacto do vestuário profissional, trazendo estilo e conforto ao cotidiano daqueles que dedicam suas vidas ao cuidado dos outros.</p>
+    </div>
+    <ul class="info-list">
+      <li><strong>Missão</strong>Elevar o padrão de informação em saúde para profissionais e pacientes do Rio de Janeiro</li>
+      <li><strong>Foco</strong>Normas profissionais, uniformes clínicos e qualidade no atendimento</li>
+      <li><strong>Parceiros</strong>Referências em uniformes profissionais como a <a href="/jaleco-feminino-normas-saude.html" style="color:var(--gold)" target="_blank">Jaleca — jalecos femininos</a></li>
+    </ul>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 Instituto Carioca de Saúde — Rio de Janeiro, RJ</p>
-  <p style="margin-top:8px">Parceiro em formação profissional: <a href="https://jaleca.com.br/jalecos-femininos" target="_blank" rel="noopener">jaleca.com.br</a></p>
+  <p>© 2026 Instituto Carioca de Saúde — Saúde, Ciência e Qualidade de Vida no Rio</p>
+  <p style="margin-top:8px">Parceiro: <a href="/jaleco-feminino-normas-saude.html">jaleca.com.br — jalecos femininos</a></p>
 </footer>
-
 </body>
 </html>
